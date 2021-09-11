@@ -8,7 +8,7 @@
         </ol>
         <!--/.Indicators-->
         <!--Slides-->
-       
+
         <div class="carousel-inner" role="listbox">
             <div class="carousel-item active">
                 <div class="view">
@@ -112,67 +112,67 @@
     }
 </style>
 <div class="container-fluid">
-<form method="get" action="<?php echo site_url("vegetation/index");?>">
-<div class="row">
-    <div class="input-group">
-    
- <input type="text" name="search" class="form-control" placeholder="Search here..."/>
+    <form method="get" action="<?php echo site_url("vegetation/index"); ?>">
+        <div class="row">
+            <div class="input-group">
 
-<button type="submit" value="search" name="save" class="btn btn-primary">
-<i class="material-icons">search</i>
-</button>
-</div>
-</div>
+                <input type="text" name="search" class="form-control" placeholder="Search here..." />
 
-     
-</form>
+                <button type="submit" value="search" name="save" class="btn btn-primary">
+                    <i class="material-icons">search</i>
+                </button>
+            </div>
+        </div>
+
+
+    </form>
 
     <div class="row">
-    <?php
-					foreach($results as $row){
-						?>
-        <div class="col col-12 col-sm-6  col-md-4 col-lg-3">
-            <div class="card h-100">
-                <img src="<?php echo $row->URL; ?>" class="card-img-top" alt="..." />
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $row->n_common_TH ." (".$row->n_common_ENG .")";?></h5>
-                    <p class="card-text">
-                    <?php echo $row->n_scientific; ?>
-                    </p>
-                </div>
-                <div class="card-footer text-center">
-                    <a href="#" class="btn btn-warning">View</a>
-                </div>
-                
-            </div>
-            
-        </div>
         <?php
-					}	
-				?>
+        foreach ($results as $row) {
+        ?>
+            <div class="col col-12 col-sm-6  col-md-4 col-lg-3">
+                <div class="card h-100">
+                    <img src="<?php echo $row->URL; ?>" class="card-img-top" alt="..." />
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $row->n_common_TH . " (" . $row->n_common_ENG . ")"; ?></h5>
+                        <p class="card-text">
+                            <?php echo $row->n_scientific; ?>
+                        </p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="<?php echo site_url("detail/index"); ?>" class="btn btn-warning">View</a>
+                    </div>
+
+                </div>
+
+            </div>
+        <?php
+        }
+        ?>
 
 
-      
-        
+
+
     </div>
     <?php
-				if(isset($links)){
-					echo $links;
-				} 
-			?>
-            <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-  </ul>
-</nav>
+    if (isset($links)) {
+        echo $links;
+    }
+    ?>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 </div>
 
 </div>

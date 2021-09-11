@@ -27,8 +27,8 @@ public function GetSearchdata()
 	{
 		$this->db->select("*");	
 		$this->db->like('n_common_TH',$this->input->get('search'));
-		$query = $this->db->get("n_common_TH"); 
+		$query = $this->db->get("vegetation"); 
 		return $query->result();
 	}
-
+    
 }

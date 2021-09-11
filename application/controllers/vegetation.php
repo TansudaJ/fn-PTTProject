@@ -59,9 +59,11 @@ class vegetation extends CI_Controller {
         }
 		
 		$data['searchdata']=$this->VegetationModel->GetSearchdata();
+
+		$data_nav = array('activebar'=>'vegetation');
 			
 		$this->load->view('structure/top');
-		$this->load->view('structure/nav');
+		$this->load->view('structure/nav',$data_nav);
 		$this->load->view('structure/topcontent');
 		$this->load->view('vegetation', $params,$data);
 		$this->load->view('structure/footer');
