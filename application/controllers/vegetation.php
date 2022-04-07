@@ -2,72 +2,30 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class vegetation extends CI_Controller {
-
-	function __construct(){
-		parent::__construct();
-		$this->load->library('pagination');
-		$this->load->helper('url');
-		$this->load->model('VegetationModel');
-	}
 	public function index(){
-		//set params
-		$params = array();
-		//set records per page
-        $limit_page = 1;
-        $page = ($this->uri->segment(3)) ? ($this->uri->segment(3) - 1) : 0;
-        $total = $this->VegetationModel->get_total();
- 
-        if ($total > 0) 
-        {
-            // get current page records
-            $params['results'] = $this->VegetationModel->get_all_vegetation($limit_page, $page * $limit_page);
- 
-            $config['base_url'] = base_url() . 'welcome/index';
-            $config['total_rows'] = $total;
-            $config['per_page'] = $limit_page;
-            $config['uri_segment'] = 3;
- 
-            //paging configuration
-            $config['num_links'] = 2;
-            $config['use_page_numbers'] = TRUE;
-            $config['reuse_query_string'] = TRUE;
- 
-            //bootstrap pagination 
-            $config['full_tag_open'] = '<ul class="pagination">';
-			$config['full_tag_close'] = '</ul>';	
-			$config['first_link'] = '&laquo; First';
-			$config['first_tag_open'] = '<li>';
-			$config['first_tag_close'] = '</li>';
-			$config['last_link'] = 'Last &raquo';
-			$config['last_tag_open'] = '<li>';
-			$config['last_tag_close'] = '</li>';
-			$config['next_link'] = 'Next';
-			$config['next_tag_open'] = '<li>';
-			$config['next_tag_close'] = '<li>';
-			$config['prev_link'] = 'Prev';
-			$config['prev_tag_open'] = '<li>';
-			$config['prev_tag_close'] = '<li>';
-			$config['cur_tag_open'] = '<li class="active"><a href="#">';
-			$config['cur_tag_close'] = '</a></li>';
-			$config['num_tag_open'] = '<li>';
-			$config['num_tag_close'] = '</li>';
- 
-            $this->pagination->initialize($config);
- 
-            // build paging links
-            $params['links'] = $this->pagination->create_links();
-        }
+		$this->load->model('VegetationModel');
+		$tmp = $this->VegetationModel->get_all_vegetation();
+		$data['results'] = $tmp;
 		
-		$data['searchdata']=$this->VegetationModel->GetSearchdata();
 
 		$data_nav = array('activebar'=>'vegetation');
 			
 		$this->load->view('structure/top');
 		$this->load->view('structure/nav',$data_nav);
 		$this->load->view('structure/topcontent');
-		$this->load->view('vegetation', $params,$data);
+		$this->load->view('vegetation',$data);
 		$this->load->view('structure/footer');
         
+	}
+	public function vegetationbyID($id)
+	{
+		$this->load->model('VegetationModel');
+		$tmp = $this->VegetationModel->get_vegetation_byID($id);
+		$data['ststus'] = '200';
+		$data['data'] = $tmp;
+		echo header('Content-Type: text/html; charset=UTF-8');
+		echo json_encode($data);
+		//var_dump($tmp);
 	}
 	
 	

@@ -1,34 +1,24 @@
 <?php
 class VegetationModel extends CI_Model
 {
-    public function get_all_vegetation($limit, $start)
+    public function get_all_vegetation()
     {
-        $this->db->limit($limit, $start);
         $query = $this->db->query("SELECT * FROM vegetation v JOIN imagevegetation i ON v.vegetationID = i.vegetation_vegetationID WHERE status = 1");
-        $rows = $query->result();
-        if ($query->num_rows() > 0) {
-            foreach ($rows as $row) {
-                $data[] = $row;
-            }
-
-            return $data;
-        }
-
-        return false;
+        return $query->result();
     }
-
-    public function get_total()
+    
+    public function get_vegetation_byID($id)
     {
-        return $this->db->count_all('vegetation');
+           $sql =  "SELECT * FROM vegetation WHERE vegetationID = '".$id."'";
+            $query = $this->db->query($sql);
+            $sql2 =  "SELECT * FROM imagevegetation WHERE vegetation_vegetationID = '".$id."'";
+            $query2 = $this->db->query($sql2);
+            $vergetaion = $query->result_array();
+            $vergetaion[0]['imglist'] = $query2->result_array();
+            echo json_encode( $vergetaion);
+            //var_dump($vergetaion);
+            //return $query->result();
+           // echo $sql;
+            //die();
     }
-
-    
-public function GetSearchdata()
-	{
-		$this->db->select("*");	
-		$this->db->like('n_common_TH',$this->input->get('search'));
-		$query = $this->db->get("vegetation"); 
-		return $query->result();
-	}
-    
 }

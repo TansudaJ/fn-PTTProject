@@ -17,7 +17,7 @@
         <a class="nav-link" href="<?php echo site_url("vegetation/index"); ?>">ข้อมูลพรรณไม้</a>
       </li>
       <li class="nav-item <?php if ($activebar == "plant"){echo "active";} ?>">
-        <a class="nav-link" href="<?php echo site_url("plant/index"); ?>">ข้อมูลต้นไม้</a>
+        <a class="nav-link" href="<?php echo site_url("plant/index"); ?>">ข้อมูลต้นไม้แนะนำ</a>
       </li>
       <li class="nav-item dropdown">
       <a class="nav-link" href="#">การติดต่อ</a>
