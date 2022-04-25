@@ -1,317 +1,267 @@
 <style>
-    /* === Google Font Import - Poppins === */
+    @import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@200&display=swap');
+
+
+    .card {
+        background: #fff;
+        box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+        border: 0;
+        border-radius: 1rem;
+
+    }
+
+    .card-img,
+    .card-img-top {
+        border-top-left-radius: calc(1rem - 1px);
+        border-top-right-radius: calc(1rem - 1px);
+
+    }
+
+    .card-img-top {
+        width: 100%;
+        padding: 15px;
+        max-height: 200;
+        object-fit: contain;
+    }
+
+    .card p {
+        font-size: small;
+        font-style: italic;
+        font-weight: 400;
+        color: #4a4a4a;
+        text-align: center;
+    }
+
+    .card h6 {
+        font-size: auto;
+        font-family: 'Kodchasan', sans-serif;
+        font-weight: bolder;
+        text-align: center;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+    }
+
+    .row {
+        margin: 3%;
+    }
+
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+
+        align-items: center;
+        justify-content: center;
+        background: #20B2AA;
+        min-height: 100vh;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    .page-item.activee .page-link {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #fff;
+    }
 
 
-.container{
-  display: flex;
-  justify-content: center;
-}
-section{
-  position: relative;  
-  height: 450px;
-  width: 1075px;
-  display: flex;
-  align-items: center;
-}
-
-.swiper{
-  width: 950px;
-}
-
-.card{
-  position: relative;
-  background: #fff;
-  border-radius: 20px;
-  margin: 20px 0;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.card::before{
-  content: "";
-  position: absolute;
-  height: 40%;
-  width: 100%;
-  background: #20B2AA;
-  border-radius: 20px 20px 0 0;
-}
-
-.card .card-content{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 30px;
-  position: relative;
-  z-index: 100;
-}
-
-section .card .image{
-
-  width: 100%;
-   max-height: 200px;
-  
-  padding: 5px;
-  background: #20B2AA;
-}
-
-section .card .image img{
-    max-height: 150px;
-  width: 100%;
-  object-fit: cover;
-  
-  border: 3px solid #fff;
-}
+    .pagination {
+        text-align: center;
+        margin: 30px 30px 60px;
+        user-select: none;
+    }
 
 
-.card .name-profession{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 10px;
-  color: #000;
-} 
+    .pagination li {
+        display: inline-block;
+        margin: 5px;
+        box-shadow: 0 5px 25px rgb(1 1 1 / 10%);
 
-.name-profession .name{
-  font-size: 20px;
-  font-weight: 600;
-}
+    }
 
-.name-profession .profession{
-  font-size:15px;
-  font-weight: 500;
-}
+    .pagination li a {
+        color: #20B2AA;
+        text-decoration: none;
+        font-size: 1.2em;
+        line-height: 16px;
+    }
 
-.card .button{
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
+    .previous-page,
+    .next-page {
+        background: #0AB1CE;
+        width: 80px;
+        border-radius: 45px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
 
-.card .button button{
-  background: #20B2AA;
-  outline: none;
-  border: none;
-  color: #fff;
-  padding: 8px 22px;
-  border-radius: 20px;
-  font-size: 14px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
+    .previous-page:hover {
+        transform: translateX(-5px);
+    }
 
-.button button:hover{
-  background: #007bff;
-}
+    .next-page:hover {
+        transform: translateX(5px);
+    }
 
-.swiper-pagination{
-  position: absolute;
-}
+    .current-page,
+    .dots {
+        background: #ccc;
+        width: 45px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
 
-.swiper-pagination-bullet{
-  height: 7px;
-  width: 26px;
-  border-radius: 25px;
-  background: #20B2AA;
-}
+    .activee {
+        background: #0AB1CE;
+    }
 
-.swiper-button-next, .swiper-button-prev{
-  opacity: 0.7;
-  color: #20B2AA;
-  transition: all 0.3s ease;
-}
-.swiper-button-next:hover, .swiper-button-prev:hover{
-  opacity: 1;
-  color: #20B2AA;
-}
-
+    .disable {
+        background: #ccc;
+    }
+    .text{
+    text-align:center;
+    margin-top: 20px;
+    text-decoration: underline wavy #fff;
+    color: #fff;
+    }
 </style>
-<div class="container">
-<section>
-    
-    <div class="swiper mySwiper container">
-      <div class="swiper-wrapper content">
+<div class="container-fluid">
 
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="http://localhost/bn-PTTProject/image/vegetation/flower1-Orang%20Jessamine.jpg" alt="">
-            </div>
+<h4 class="text">ต้นไม้แนะนำ</h4>
 
+    <div class="row">
+        <?php
+        foreach ($results as $row) {
+        ?>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12" style="margin-bottom: 15px;">
+                <div class="card h-100">
+                    <img src="<?php echo $row->URL; ?>" class="card-img-top h-100" alt="..." />
+                    <div class="card-body">
+                        <h6 class="card-title"><?php echo $row->n_common_TH . " (" . $row->n_common_ENG . ")"; ?></h6>
+                        <p class="card-text">
+                            <?php echo $row->distribution; ?>
+                        </p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="<?php echo site_url("detail/index/" . $row->vegetationID); ?>" class="btn btn-warning">View</a>
+                    </div>
 
-            <div class="name-profession">
-              <span class="name">Someone Name</span>
-              <span class="profession">Web Developer</span>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">รายละเอียด</button>
+                </div>
 
             </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="http://localhost/bn-PTTProject/image/vegetation/produce-pomelo.jpg" alt="">
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Someone Name</span>
-              <span class="profession">Web Developer</span>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">รายละเอียด</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="http://localhost/bn-PTTProject/image/vegetation/leaf-Snake%20Plant.jpg" alt="">
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Someone Name</span>
-              <span class="profession">Web Developer</span>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">รายละเอียด</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/img4.jpg" alt="">
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Someone Name</span>
-              <span class="profession">Web Developer</span>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">รายละเอียด</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/img5.jpg" alt="">
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Someone Name</span>
-              <span class="profession">Web Developer</span>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">รายละเอียด</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/img6.jpg" alt="">
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Someone Name</span>
-              <span class="profession">Web Developer</span>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">รายละเอียด</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/img7.jpg" alt="">
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Someone Name</span>
-              <span class="profession">Web Developer</span>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">รายละเอียด</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/img8.jpg" alt="">
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Someone Name</span>
-              <span class="profession">Web Developer</span>
-            </div>
-           <div class="button">
-              <button class="aboutMe">รายละเอียด</button>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide card">
-          <div class="card-content">
-            <div class="image">
-              <img src="images/img9.jpg" alt="">
-            </div>
-
-            <div class="name-profession">
-              <span class="name">Someone Name</span>
-              <span class="profession">Web Developer</span>
-            </div>
-
-            <div class="button">
-              <button class="aboutMe">รายละเอีย</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
+        <?php
+        }
+        ?>
     </div>
+    <script>
+        function infoClick(vegetationID) {
 
-    <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-  </section>
+            $.ajax({
+                type: "GET",
+                url: "http://localhost/fn-PTTProject/index.php/vegetation/vegetationbyID/" + vegetationID,
+                contentType: "application/x-www-form-urlencoded;charset=ISO-8859-15",
+                dataType: 'json',
+                success: function(data) {
+                    $vegetation = data['data'][0];
+
+                    $('#recipient-name').val($vegetation['n_prefix']);
+                    $('#info_modal').modal('toggle');
+                }
+            });
+
+
+        }
+    </script>
+
+
+
+
 </div>
 
-  <!-- Swiper JS -->
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      slidesPerGroup: 3,
-      loop: true,
-      loopFillGroupWithBlank: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
+
+
+<style>
+  /* Font */
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+
+
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card_content {
+  padding: 1rem;
+  background: linear-gradient(to bottom left, #EF8D9C 40%, #FFC39E 100%);
+}
+
+.card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;    
+  font-weight: 400;
+}
+.made_by{
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
+  text-align: center;
+}
+</style>
+
+
