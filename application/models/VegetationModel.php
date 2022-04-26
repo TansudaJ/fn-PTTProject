@@ -1,9 +1,14 @@
 <?php
 class VegetationModel extends CI_Model
 {
-    public function get_all_vegetation()
+    public function get_all_vegetation($search)
     {
-        $query = $this->db->query("SELECT * FROM vegetation v JOIN imagevegetation i ON v.vegetationID = i.vegetation_vegetationID WHERE status = 1");
+        if($search!=""){
+            $query = $this->db->query("SELECT * FROM vegetation v JOIN imagevegetation i ON v.vegetationID = i.vegetation_vegetationID WHERE status = 1 AND n_common_TH LIKE '%$search%'");
+        }else{
+            $query = $this->db->query("SELECT * FROM vegetation v JOIN imagevegetation i ON v.vegetationID = i.vegetation_vegetationID WHERE status = 1");
+        }
+        
         return $query->result();
     }
     

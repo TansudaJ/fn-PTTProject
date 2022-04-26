@@ -4,9 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class vegetation extends CI_Controller {
 	public function index(){
 		$this->load->model('VegetationModel');
-		$tmp = $this->VegetationModel->get_all_vegetation();
+
+		$search = "";
+
+		if (isset($_GET["save"])){
+			$search = $_GET["search"];
+		}
+
+		$tmp = $this->VegetationModel->get_all_vegetation($search);
 		$data['results'] = $tmp;
-		
 
 		$data_nav = array('activebar'=>'vegetation');
 			

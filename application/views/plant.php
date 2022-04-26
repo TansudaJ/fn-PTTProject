@@ -148,7 +148,7 @@
                     <div class="card-body">
                         <h6 class="card-title"><?php echo $row->n_common_TH . " (" . $row->n_common_ENG . ")"; ?></h6>
                         <p class="card-text">
-                            <?php echo $row->distribution; ?>
+                            <?php if(strlen($row->distribution)<200){echo $row->distribution;} else {echo (substr($row->distribution,0,200)."...");} ?>
                         </p>
                     </div>
                     <div class="card-footer text-center">

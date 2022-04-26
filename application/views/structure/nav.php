@@ -10,8 +10,8 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">หน้าหลัก <span class="sr-only">(current)</span></a>
+      <li class="nav-item <?php if ($activebar == "welcome"){echo "active";} ?>">
+        <a class="nav-link" href="<?php echo site_url("welcome/index"); ?>">หน้าหลัก</a>
       </li>
       <li class="nav-item <?php if ($activebar == "vegetation"){echo "active";} ?>">
         <a class="nav-link" href="<?php echo site_url("vegetation/index"); ?>">ข้อมูลพรรณไม้</a>
