@@ -64,14 +64,6 @@
       border-color: #2b90d9;
     }
 
-    /*
-*
-* ==========================================
-* FOR DEMO PURPOSE
-* ==========================================
-*
-*/
-
     .nav-pills .nav-link {
       color: #555;
     }
@@ -79,15 +71,19 @@
     .text-uppercase {
       letter-spacing: 0.1em;
     }
+    .card-img-top{
+      height: 100px;
+      width: auto;
+    }
   </style>
   <div class="p-5 bg-white rounded shadow mb-5">
     <!-- Rounded tabs -->
     <ul id="myTab" role="tablist" class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
       <li class="nav-item flex-sm-fill">
-        <a id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" class="nav-link border-0 text-uppercase font-weight-bold active">ข้อมูลทั่วไป</a>
+        <a id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" class="nav-link border-0 text-uppercase font-weight-bold active">ข้อมูล</a>
       </li>
       <li class="nav-item flex-sm-fill">
-        <a id="picture-tab" data-toggle="tab" href="#picture" role="tab" aria-controls="picture" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">รูปภาพ</a>
+        <a id="picture-tab" data-toggle="tab" href="#picture" role="tab" aria-controls="picture" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">รูปต้นไม้</a>
       </li>
     </ul>
     <div id="myTabContent" class="tab-content">
@@ -109,12 +105,12 @@
                 <div id="collapseOne-1" class="collapse" role="tabpanel" aria-labelledby="headingOne-1">
                   <div class="card-block" style="margin: 20px 50px 20px 50px;">
                     <b>ความพิเศษของต้นไม้:</b> <?php echo $plant->exclusivity; ?> <br>
-                    <b>ขนาดความสูง:</b> <?php echo $plant->height; ?> เซนติเมตร <br>
+                    <b>ขนาดความสูง:</b> <?php echo $plant->height; ?> เมตร <br>
                     <b>ขนาดเส้นผ่าศูนย์กลาง:</b> <?php echo $plant->diameter; ?> เซนติเมตร <br>
                     <b>สถานะปัจจุบัน:</b> <?php echo $plant->actual; ?> <br>
-                    <b>QR Code:</b> <img src="<?php echo $this->config->item('bn_base_url') . $plant->QRCode; ?>" class="card-img-top h-100" alt="..." /> <br>
-                    
-                  </div>
+                    <b>QR Code:</b> <img src="<?php echo $this->config->item('bn_base_url') . $plant->QRCode; ?>" class="card-img-top" alt="..." /> <br>
+                    <b>ข้อมูลพรรณไม้:</b> <a href="<?php echo $this->config->item('base_url') . "index.php/detail/index/".$vegetation->vegetation_vegetationID; ?>">link ข้อมูลเพิ่มเติม</a> <br>
+                  </div>  
                 </div>
               </div>
               

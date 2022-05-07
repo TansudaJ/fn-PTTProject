@@ -152,10 +152,10 @@
                             <div class="card-body">
                                 <h6 class="card-title"><?php echo $row->n_common_TH . " (" . $row->n_common_ENG . ")"; ?></h6>
                                 <p class="card-text">
-                                    <?php if (strlen($row->exclusivity) < 200) {
+                                    <?php if (strlen($row->exclusivity) < 250) {
                                         echo $row->exclusivity;
                                     } else {
-                                        echo (substr($row->exclusivity, 0, 200) . "...");
+                                        echo (substr($row->exclusivity, 0, 250) . "...");
                                     } ?>
                                 </p>
                             </div>

@@ -6,6 +6,16 @@ class detail extends CI_Controller {
 
 	public function index($id)
 	{
+		
+		$arrregion = array();
+		$arrregion[0]= "";
+		$arrregion[1]= "ภาคเหนือ";
+		$arrregion[2]= "ภาคอีสาน";
+		$arrregion[3]= "ภาคตะวันตก";
+		$arrregion[4]= "ภาคกลาง";
+		$arrregion[5]= "ภาคตะวันออก";
+		$arrregion[6]= "ภาคใต้";
+
 		$this->load->model('DetailModel');
 		$tmp = $this->DetailModel->get_vegetation($id);
 		$page_data['vegetation'] = $tmp;
@@ -19,6 +29,7 @@ class detail extends CI_Controller {
 		$page_data['typename'] = $tmp4;
 		$tmp5 = $this->DetailModel->get_localname($id);
 		$page_data['localname'] = $tmp5;
+		$page_data['arrregion'] = $arrregion;
 		
 		$data_nav = array('activebar'=>'vegetation');	
 		$this->load->view('structure/footer');

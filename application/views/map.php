@@ -1,19 +1,25 @@
 <div class="holder">
     <img src="<?php echo $this->config->item('bn_base_url') . $img_map[0]["imageURL"] ?>" data-imgsize="1920x1080" alt="Workplace" usemap="#image-map" id="project_map">
     <map name="image-map">
-    <?php 
-echo str_replace("link_image_id_is_",site_url("welcome/index"),$img_map[0]["imagedetail"]); ?>
+        <?php echo str_replace("link_image_id_is_", site_url("welcome/index"), $img_map[0]["imagedetail"]); ?>
     </map>
 </div>
 
-<style>
-     body {
-
-align-items: center;
-justify-content: center;
-background: #20B2AA;
-min-height: 100vh;
+<?php
+if($showplant){
+    var_dump($showplantlist);
 }
+?>
+
+<style>
+    body {
+
+        align-items: center;
+        justify-content: center;
+        background: #20B2AA;
+        min-height: 100vh;
+    }
+
     .holder {
         max-width: 1222px;
         width: 100%;
@@ -23,7 +29,6 @@ min-height: 100vh;
     img {
         width: 100%;
     }
-   
 </style>
 <script>
     class ImageResize {

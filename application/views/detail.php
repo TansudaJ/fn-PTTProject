@@ -121,9 +121,11 @@
                     <b>ชื่อสามัญ:</b> <?php echo $vegetation->n_common_ENG; ?> <br>
                     <b>ชื่อวิทยาศาสตร์:</b> <?php echo $vegetation->n_scientific; ?> <br>
                     <b>ชื่อวงศ์:</b> <?php echo $vegetation->n_family; ?><br>
-                    <b>ชื่ออื่นๆ:</b> <?php
+                    <b>ชื่ออื่นๆ/ชื่อท้องถิ่น:</b> <?php
+                                          $i=0 ;
                                           foreach ($localname as $row) {
-                                            echo $row->region."(".$row->localname. ")" . "<br>";
+                                            echo (($i>0)?', ':'') . $row->localname."(".$arrregion[$row->region]. ")";
+                                            $i++;
                                           }
                                           ?><br>
                     
