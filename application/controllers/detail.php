@@ -15,6 +15,10 @@ class detail extends CI_Controller {
 		$page_data['medicinalProperties'] = $tmp2;
 		$tmp3 = $this->DetailModel->get_plantpathname($id);
 		$page_data['plantpathname'] = $tmp3;
+		$tmp4 = $this->DetailModel->get_typename($id);
+		$page_data['typename'] = $tmp4;
+		$tmp5 = $this->DetailModel->get_localname($id);
+		$page_data['localname'] = $tmp5;
 		
 		$data_nav = array('activebar'=>'vegetation');	
 		$this->load->view('structure/footer');

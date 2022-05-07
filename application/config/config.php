@@ -23,7 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/fn-PTTProject';
+$config['base_url'] = 'http://localhost/fn-PTTProject/';
+$config['bn_base_url'] = 'http://localhost/bn-PTTProject/';
 
 /*
 |--------------------------------------------------------------------------

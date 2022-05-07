@@ -87,15 +87,6 @@
         <a id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" class="nav-link border-0 text-uppercase font-weight-bold active">ข้อมูลทั่วไป</a>
       </li>
       <li class="nav-item flex-sm-fill">
-        <a id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">ลักษณะทางพฤกษศาสตร์</a>
-      </li>
-      <li class="nav-item flex-sm-fill">
-        <a id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">การใช้ประโยชน์</a>
-      </li>
-      <li class="nav-item flex-sm-fill">
-        <a id="maintenance-tab" data-toggle="tab" href="#maintenance" role="tab" aria-controls="maintenance" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">การดูแลรักษา</a>
-      </li>
-      <li class="nav-item flex-sm-fill">
         <a id="picture-tab" data-toggle="tab" href="#picture" role="tab" aria-controls="picture" aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">รูปภาพ</a>
       </li>
     </ul>
@@ -109,7 +100,7 @@
                 <div class="card-header" role="tab" id="headingOne-1">
                   <h5 class="mb-0">
                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-1" aria-expanded="false" aria-controls="collapseOne-1">
-                      ข้อมูลพรรณไม้
+                      ความพิเศษ
                     </a>
                   </h5>
                 </div>
@@ -117,53 +108,16 @@
 
                 <div id="collapseOne-1" class="collapse" role="tabpanel" aria-labelledby="headingOne-1">
                   <div class="card-block" style="margin: 20px 50px 20px 50px;">
-                    <b>ชื่อไทย:</b> <?php echo $vegetation->n_common_TH; ?> <br>
-                    <b>ชื่อสามัญ:</b> <?php echo $vegetation->n_common_ENG; ?> <br>
-                    <b>ชื่อวิทยาศาสตร์:</b> <?php echo $vegetation->n_scientific; ?> <br>
-                    <b>ชื่อวงศ์:</b> <?php echo $vegetation->n_family; ?><br>
-                    <b>ชื่ออื่นๆ:</b> <?php
-                                          foreach ($localname as $row) {
-                                            echo $row->region."(".$row->localname. ")" . "<br>";
-                                          }
-                                          ?><br>
+                    <b>ความพิเศษของต้นไม้:</b> <?php echo $plant->exclusivity; ?> <br>
+                    <b>ขนาดความสูง:</b> <?php echo $plant->height; ?> เซนติเมตร <br>
+                    <b>ขนาดเส้นผ่าศูนย์กลาง:</b> <?php echo $plant->diameter; ?> เซนติเมตร <br>
+                    <b>สถานะปัจจุบัน:</b> <?php echo $plant->actual; ?> <br>
+                    <b>QR Code:</b> <img src="<?php echo $this->config->item('bn_base_url') . $plant->QRCode; ?>" class="card-img-top h-100" alt="..." /> <br>
                     
-                    <b>กลุ่มพรรณไม้:</b> <?php
-                                          foreach ($typename as $row) {
-                                            echo $row->typename;
-                                          }
-                                          ?><br>  
-                                          
                   </div>
                 </div>
               </div>
-              <div class="card multi">
-                <div class="card-header" role="tab" id="headingTwo-1">
-                  <h5 class="mb-0">
-                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo-1" aria-expanded="false" aria-controls="collapseTwo-1">
-                      เขตกระจายพันธุ์
-                    </a>
-                  </h5>
-                </div>
-                <div id="collapseTwo-1" class="collapse show" role="tabpanel" aria-labelledby="headingTwo-1">
-                  <div class="card-block" style="margin: 20px 50px 20px 50px;">
-                    <?php echo $vegetation->distribution; ?>
-                  </div>
-                </div>
-              </div>
-              <div class="card multi">
-                <div class="card-header" role="tab" id="headingThree-1">
-                  <h5 class="mb-0">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree-1" aria-expanded="true" aria-controls="collapseThree-1">
-                      ถิ่นกำเนิด
-                    </a>
-                  </h5>
-                </div>
-                <div id="collapseThree-1" class="collapse show" role="tabpanel" aria-labelledby="headingThree-1">
-                  <div class="card-block" style="margin: 20px 50px 20px 50px;">
-                    <?php echo $vegetation->plant_origin; ?>
-                  </div>
-                </div>
-              </div>
+              
             </div>
             <script>
               $('.collapse').collapse()
@@ -171,61 +125,7 @@
           </div>
         </div>
       </div>
-      <div id="profile" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-4 py-5">
-        <p class="text-muted"><?php echo $vegetation->appearance; ?></p>
-      </div>
-      <div id="contact" role="tabpanel" aria-labelledby="contact-tab" class="tab-pane fade px-4 py-5">
-        <div id="accordion-2" role="tablist" aria-multiselectable="true" class="o-accordion">
-          <div id="accordion-2" role="tablist" aria-multiselectable="true" class="o-accordion">
-            <div class="card multi">
-              <div class="card-header" role="tab" id="headingOne-1">
-                <h5 class="mb-0">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-2" aria-expanded="false" aria-controls="collapseOne-1">
-                    สรรพคุณททางยา
-                  </a>
-                </h5>
-              </div>
-              <div id="collapseOne-1" class="collapse" role="tabpanel" aria-labelledby="headingOne-2">
-                <div class="card-block" style="margin: 20px 50px 20px 50px;">
-                  <p><?php
-                      //var_dump($medicinalProperties);
-                      foreach ($medicinalProperties as $row) {
-                        echo "<b>" . $row->plantpathname . ":</b> " . $row->properties . "<br>";
-                      }
-                      ?>
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="card multi">
-              <div class="card-header" role="tab" id="headingTwo-1">
-                <h5 class="mb-0">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo-2" aria-expanded="false" aria-controls="collapseTwo-1">
-                    ข้อแนะนำและข้อควรระวัง
-                  </a>
-                </h5>
-              </div>
-              <div id="collapseTwo-1" class="collapse" role="tabpanel" aria-labelledby="headingTwo-2">
-                <div class="card-block" style="margin: 20px 50px 20px 50px;">
-                  <?php echo $vegetation->caution; ?>
-                </div>
-              </div>
-            </div>
-          </div>
-          <script>
-            $('.collapse').collapse()
-          </script>
-        </div>
-      </div>
-      <div id="maintenance" role="tabpanel" aria-labelledby="maintenance-tab" class="tab-pane fade px-4 py-5">
-        <p>
-          <b>การปลูกและการขยายพันธุ์:</b> <?php echo $vegetation->propagation; ?><br>
-          <b>ระยะเวลาการติดดอก:</b> <?php echo $vegetation->flowering_period; ?><br>
-          <b>ระยะเวลาการติดผล:</b> <?php echo $vegetation->produce_period; ?><br>
-          <b>สภาพนิเวศวิทยา:</b> <?php echo $vegetation->ecological; ?><br>
-          <b>ปริมาณการคายก๊าซคาร์บอนไดออกไซด์:</b> <?php echo $vegetation->co2_storage; ?><br>
-        </p>
-      </div>
+      
       <div id="picture" role="tabpanel" aria-labelledby="picture-tab" class="tab-pane fade px-4 py-5">
         <section>
           <style>
@@ -313,7 +213,7 @@
           <div class="product">
 
             <?php
-            foreach ($imagevegetation as $row) { ?>
+            foreach ($imageplant as $row) { ?>
               <div class="itemBox" data-item="<?php echo $row->plantpath_pathID; ?>"><img src="<?php echo $this->config->item('bn_base_url') .$row->URL; ?>"></div>
             <?php
             } ?>

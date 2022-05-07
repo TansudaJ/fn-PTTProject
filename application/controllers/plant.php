@@ -6,8 +6,10 @@ class plant extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('PlantModel');
-		$tmp = $this->PlantModel->get_all_plant();
-		$data['results'] = $tmp;
+		$tmp = $this->PlantModel->get_plant();
+		$data['plant'] = $tmp;
+		$tmp3 = $this->PlantModel->get_plantpathname();
+		$data['plantpathname'] = $tmp3;
 		
 
 		$data_nav = array('activebar'=>'plant');
@@ -17,6 +19,7 @@ class plant extends CI_Controller {
 		$this->load->view('structure/topcontent');
 		$this->load->view('plant',$data);
 		$this->load->view('structure/footer');
+		
 	
 	}
 	public function plantbyID($id)

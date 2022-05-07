@@ -1,24 +1,15 @@
 <?php
-class PlantModel extends CI_Model {
-    public function get_all_plant()
+class PlantModel extends CI_Model
+{
+    public function get_plant()
     {
-        $query = $this->db->query("SELECT * FROM vegetation v JOIN imagevegetation i ON v.vegetationID = i.vegetation_vegetationID WHERE status = 1");
+        $query = $this->db->query("SELECT * FROM plants p LEFT JOIN imageplant i ON p.plantID = i.plants_plantID AND i.status=1 JOIN vegetation v ON p.vegetation_vegetationID = v.vegetationID WHERE p.show = 1 ORDER BY n_common_TH");
         return $query->result();
     }
-    public function get_plant_byID($id)
+    public function get_plantpathname()
     {
-           $sql =  "SELECT * FROM vegetation WHERE vegetationID = '".$id."'";
-            $query = $this->db->query($sql);
-            $sql2 =  "SELECT * FROM imagevegetation WHERE vegetation_vegetationID = '".$id."'";
-            $query2 = $this->db->query($sql2);
-            $vergetaion = $query->result_array();
-            $vergetaion[0]['imglist'] = $query2->result_array();
-            echo json_encode( $vergetaion);
-            //var_dump($vergetaion);
-            //return $query->result();
-           // echo $sql;
-            //die();
+        $query = $this->db->query("SELECT DISTINCT nameTH ,zoneID FROM plants p JOIN zone z ON p.zone_zoneID = z.zoneID ");
+        return $query->result();
     }
 
-   
 }
