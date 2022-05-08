@@ -6,55 +6,50 @@
 </div>
 
 <?php
-if ($showplant) { ?>
+if ($showplant) {?>
 
-    <table style="width:100%">
+<table style="width:100%">
 
-        <tr align="center">
-            <th>ลำดับ</th>
-            <th>รหัสต้นไม้</th>
-            <th>ชื่อสามัญ</th>
-            <th>ควาามน่าสนใจ</th>
-            <th>ละติจูด,ลองติจูด</th>
-            <th></th>
+    <tr align="center">
+        <th>ลำดับ</th>
+        <th>รหัสต้นไม้</th>
+        <th>ควาามน่าสนใจ</th>
+        <th>ลำดับ</th>
+        <th>รหัสต้นไม้</th>
+        <th>Age</th>
+    </tr>
+
+    <?php
+    
+    $i = 1;
+    foreach ($showplantlist as $row) {
+    ?>
+        <tr>
+            <td align="center"><?php
+                echo $i;
+                $i++;
+                ?>
+            </td>
+            <td align="center"><?php echo $row->vegetation_vegetationID; ?></td>
+            <td class="cell-hyphens"><?php if (strlen($row->exclusivity) < 250) {
+                                        echo $row->exclusivity;
+                                    } else {
+                                        echo (substr($row->exclusivity, 0, 250) . "...");
+                                    } ?></td>
+
         </tr>
-
-        <?php
-
-        $i = 1;
-        foreach ($showplantlist as $row) {
-        ?>
-            <tr>
-                <td align="center"><?php
-                                    echo $i;
-                                    $i++;
-                                    ?>
-                </td>
-                <td align="center"><?php echo $row->vegetation_vegetationID; ?></td>
-                <td class="cell-hyphens"><?php echo $row->n_common_TH . " (" . $row->n_common_ENG . ")"; ?></td>
-                <td class="cell-hyphens"><?php if (strlen($row->exclusivity) < 250) {
-                                                echo $row->exclusivity;
-                                            } else {
-                                                echo (substr($row->exclusivity, 0, 250) . "...");
-                                            } ?>
-                </td>
-                <td class="cell-hyphens"><?php echo $row->coordinates; ?></td>
-                <td align="center"> <a href="<?php echo site_url("plant2/index/" . $row->plantID); ?>" class="btn btn-warning">View</a></td>
-            </tr>
-        <?php
-        }
-        ?>
-    </table>
+    <?php
+   } 
+    ?>
+</table>
 <?php
+    }
+    ?>
+<?php
+if ($showplant) {
+    var_dump($showplantlist);
 }
 ?>
-
-<?php
-//if ($showplant) {
-   // var_dump($showplantlist);
-//}
-?>
-
 
 
 
@@ -90,15 +85,12 @@ if ($showplant) { ?>
 
     .cell-hyphens {
         word-wrap: break-word;
-        max-width: 1px;
-        -webkit-hyphens: auto;
-        /* iOS 4.2+ */
-        -moz-hyphens: auto;
-        /* Firefox 5+ */
-        -ms-hyphens: auto;
-        /* IE 10+ */
-        hyphens: auto;
-    }
+   max-width: 1px;
+   -webkit-hyphens: auto; /* iOS 4.2+ */
+   -moz-hyphens: auto; /* Firefox 5+ */
+   -ms-hyphens: auto; /* IE 10+ */
+   hyphens: auto;
+}
 </style>
 <script>
     class ImageResize {

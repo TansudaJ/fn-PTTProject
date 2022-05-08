@@ -104,7 +104,7 @@
 
                 <div id="collapseOne-1" class="collapse" role="tabpanel" aria-labelledby="headingOne-1">
                   <div class="card-block" style="margin: 20px 50px 20px 50px;">
-                    <b>ความพิเศษของต้นไม้:</b> <?php echo $plant->exclusivity; ?> <br>
+                    <b>ความน่าสนใจ:</b> <?php echo $plant->exclusivity; ?> <br>
                     <b>ขนาดความสูง:</b> <?php echo $plant->height; ?> เมตร <br>
                     <b>ขนาดเส้นผ่าศูนย์กลาง:</b> <?php echo $plant->diameter; ?> เซนติเมตร <br>
                     <b>สถานะปัจจุบัน:</b> <?php echo $plant->actual; ?> <br>

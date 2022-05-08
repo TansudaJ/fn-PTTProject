@@ -21,7 +21,7 @@ class VegetationModel extends CI_Model
         $vegetaion = $query->result_array();
         $vegetaion[0]['imglist'] = $query2->result_array();
         echo json_encode($vegetaion);
-        //var_dump($vergetaion);
+        //var_dump($vegetaion);
         //return $query->result();
         // echo $sql;
         //die();

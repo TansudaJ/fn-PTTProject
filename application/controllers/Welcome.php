@@ -6,8 +6,6 @@ class Welcome extends CI_Controller
 
 	public function index($zoneid = null)
 	{
-
-
 		$data_nav = array('activebar' => 'welcome');
 
 		$data = array();

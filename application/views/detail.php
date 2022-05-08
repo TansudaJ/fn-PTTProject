@@ -122,19 +122,19 @@
                     <b>ชื่อวิทยาศาสตร์:</b> <?php echo $vegetation->n_scientific; ?> <br>
                     <b>ชื่อวงศ์:</b> <?php echo $vegetation->n_family; ?><br>
                     <b>ชื่ออื่นๆ/ชื่อท้องถิ่น:</b> <?php
-                                          $i=0 ;
-                                          foreach ($localname as $row) {
-                                            echo (($i>0)?', ':'') . $row->localname."(".$arrregion[$row->region]. ")";
-                                            $i++;
-                                          }
-                                          ?><br>
-                    
+                                                    $i = 0;
+                                                    foreach ($localname as $row) {
+                                                      echo (($i > 0) ? ', ' : '') . $row->localname . "(" . $arrregion[$row->region] . ")";
+                                                      $i++;
+                                                    }
+                                                    ?><br>
+
                     <b>กลุ่มพรรณไม้:</b> <?php
                                           foreach ($typename as $row) {
                                             echo $row->typename;
                                           }
-                                          ?><br>  
-                                          
+                                          ?><br>
+
                   </div>
                 </div>
               </div>
@@ -209,7 +209,8 @@
               </div>
               <div id="collapseTwo-1" class="collapse" role="tabpanel" aria-labelledby="headingTwo-2">
                 <div class="card-block" style="margin: 20px 50px 20px 50px;">
-                  <?php echo $vegetation->caution; ?>
+                  <p class="text-muted"><?php echo $vegetation->caution; ?></p>
+
                 </div>
               </div>
             </div>
@@ -316,7 +317,7 @@
 
             <?php
             foreach ($imagevegetation as $row) { ?>
-              <div class="itemBox" data-item="<?php echo $row->plantpath_pathID; ?>"><img src="<?php echo $this->config->item('bn_base_url') .$row->URL; ?>"></div>
+              <div class="itemBox" data-item="<?php echo $row->plantpath_pathID; ?>"><img src="<?php echo $this->config->item('bn_base_url') . $row->URL; ?>"></div>
             <?php
             } ?>
 
