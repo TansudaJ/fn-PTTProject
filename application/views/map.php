@@ -85,7 +85,7 @@ if ($showplant) { ?>
     }
 
     table {
-        margin: 10px;
+        margin-top: 10px;
     }
 
     .cell-hyphens {
