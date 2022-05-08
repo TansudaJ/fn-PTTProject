@@ -183,7 +183,7 @@
               <div class="card-header" role="tab" id="headingOne-1">
                 <h5 class="mb-0">
                   <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-2" aria-expanded="false" aria-controls="collapseOne-1">
-                    สรรพคุณททางยา
+                    สรรพคุณทางยา
                   </a>
                 </h5>
               </div>
