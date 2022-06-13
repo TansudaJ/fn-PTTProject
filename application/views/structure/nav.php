@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 <a class="navbar-brand" href="#">
-<img src="https://www.pttplc.com/uploads/About/logo_PTT_3.png" alt="Logo" style="width:70px;">
+<img src="https://www.pttngd.co.th/upload_approved/news/20210922170858_Logo%E0%B8%AA%E0%B8%B5.jpg" alt="Logo" style="width:70px;">
   </a>
 
   <a class="navbar-brand" href="#">&nbsp;ระบบจัดการข้อมูลพรรณไม้</a>
